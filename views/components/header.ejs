@@ -1,0 +1,19 @@
+<header class="text-gray-600 body-font">
+    <div class="container mx-auto flex flex-wrap p-2 flex-row justify-between">
+      <a href="/" class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0 p-1 rounded-xl">
+        <%- include('./svg/brand')%>
+        <span class="text-xl text-yellow-500"><%= process.env.title %></span>
+      </a>
+      <% if(isLogin){%>
+      <a href="/author" class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0  p-1 rounded-xl">
+        <%- include('./svg/dashboard')%>
+        <!-- <span class="text-xl text-black">dashboard</span> -->
+      </a>
+      <% }else{ %>
+        <a href="/auth/login" class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0  p-1 rounded-xl">
+          <%- include('./svg/login')%>
+          <!-- <span class="text-xl text-black">Login</span> -->
+        </a>
+      <% } %>
+    </div>
+  </header>

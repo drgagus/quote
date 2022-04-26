@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" href="logo.png">
+    <link rel="shortcut icon" type="image/x-icon" href="logo.png">
+
+    <link rel="stylesheet" href="style.css" class="">
+    <title><%= process.env.title %></title>
+</head>
+<body>
+    <%- include('./../components/navbar', {category:'active'}) %>
+    <section class="text-gray-600 body-font">
+        <div class="container px-5 py-5 pb-20 mx-auto">
+          <div class="flex flex-col text-center w-full mb-5">
+            <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900">CATEGORY<a href="/category/create" class="text-indigo-500 font-black">+</a></h1>
+            <p class="lg:w-2/3 mx-auto leading-relaxed text-base">List of Categories of quote</p>
+          </div>
+          <% if(message.create){%>
+          <div class="lg:w-2/3 w-full mx-auto px-3 py-2 bg-teal-600 text-white">
+              <%= message.create %>
+          </div>
+          <% }%>
+          <% if(message.edit){%>
+          <div class="lg:w-2/3 w-full mx-auto px-3 py-2 bg-yellow-500 text-white">
+              <%= message.edit %>
+          </div>
+          <% }%>
+          <% if(message.delete){%>
+          <div class="lg:w-2/3 w-full mx-auto px-3 py-2 bg-red-500 text-white">
+              <%= message.delete %>
+          </div>
+          <% }%>
+          <div class="lg:w-2/3 w-full mx-auto overflow-auto">
+            <table class="table-auto w-full text-left whitespace-no-wrap">
+              <thead>
+                <tr>
+                  <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 rounded-tl rounded-bl">Category</th>
+                  <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <% categories.forEach((category,index)=>{ %>
+                  <tr>
+                    <td class="px-4 py-2">
+                        <a href="/category/<%= category.slug %>" class="px-4 py-2 text-black bg-<%= category.theme %>-500 rounded-xl font-semibold">
+                        <%= category.name %>
+                      </a>
+                      </td>
+                    <td class="px-4 py-2 flex">
+                      <a href="/category/<%= category.slug %>/edit" class="text-yellow-500 pr-1">edit</a>|
+                      <form action="/category/<%= category.slug %>?_method=DELETE" class="" method="POST">
+                        <button class="text-red-500 pl-1" type="submit">del</button>
+                      </form>
+                    </td>
+                  </tr>
+                <% }) %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+</body>
+</html>

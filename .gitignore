@@ -1,0 +1,5 @@
+node_modules
+style
+.env
+yarn.lock
+tailwind.config.js
