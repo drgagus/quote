@@ -1,6 +1,6 @@
 const express                   = require('express')
 const route                     = express.Router()
-const {error,unauthorize,pagenotfound,forbidden}   = require('./../controllers/error')
+const {error,unauthorize,pagenotfound,forbidden}   = require('../controllers/error')
 
 route.get('/', error)
 route.get('/forbidden', forbidden)

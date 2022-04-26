@@ -1,7 +1,7 @@
 const Author = require('../models/author')
 const Category = require('../models/category')
-const Quote     = require('./../models/quote')
-const validate  = require('./../validates/quote')
+const Quote     = require('../models/quote')
+const validate  = require('../validates/quote')
 
 async function index(req,res){
     let page = parseInt(req.query.page ? req.query.page : 1)

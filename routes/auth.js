@@ -1,7 +1,7 @@
 const express               = require('express')
 const route                 = express.Router()
 const passport              = require('passport')
-const {form,login,logout}   = require('./../controllers/Auth')
+const {form,login,logout}   = require('../controllers/auth')
 const isAdmin               = require('./../middlewares/isAdmin')
 const notAuth               = require('./../middlewares/notAuth')
 

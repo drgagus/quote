@@ -1,6 +1,6 @@
 const express   = require('express')
 const router    = express.Router()
-const {index,create,store,show,edit,update,destroy,createQuote,storeQuote,editQuote,updateQuote,destroyQuote} = require('./../controllers/author')
+const {index,create,store,show,edit,update,destroy,createQuote,storeQuote,editQuote,updateQuote,destroyQuote} = require('../controllers/author')
 
 router.get('/', index)
 router.get('/create', create)

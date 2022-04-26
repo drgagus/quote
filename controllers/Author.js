@@ -1,7 +1,7 @@
-const Author        = require('./../models/author')
-const Category      = require('./../models/category')
-const validate      = require('./../validates/author')
-const validateQuote = require('./../validates/quote')
+const Author        = require('../models/author')
+const Category      = require('../models/category')
+const validate      = require('../validates/author')
+const validateQuote = require('../validates/quote')
 const slugify       = require('slugify')
 const Quote         = require('../models/quote')
 
